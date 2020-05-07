@@ -4,7 +4,6 @@ import GrapesJS from 'grapesjs';
 import gjsBasicBlocks from 'grapesjs-blocks-basic'; // eslint-disable-line no-unused-vars
 import { useStrapi, prefixFileUrlWithBackendUrl } from 'strapi-helper-plugin'; // eslint-disable-line import/no-unresolved
 import './grapes/scss/main.scss';
-import './grapes/fonts/MyFontsWebfontsKit.css';
 import addStrapiPlugin from './grapes-plugins/strapi';
 import { strapiPluginRef } from './grapes-plugins/strapi/consts';
 import { deviceManagerConfig } from './config/device-manager.config';
