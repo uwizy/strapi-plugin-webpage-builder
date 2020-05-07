@@ -9,21 +9,26 @@ import pluginId from '../../pluginId';
 const GeneralBlock = () => (
   <div>
     <h1>General</h1>
+    <p>This section has no content yet.</p>
   </div>
 );
 const AboutBlock = () => (
   <div>
     <h1>About</h1>
     <p>
-      This plugin has been developed by{' '}
+      This plugin is developped and maintained by{' '}
       <a href="https://uwizy.com" target="_blank" rel="noopener noreferrer">
         Uwizy
       </a>
-      <hr />
-      <Button color="secondary" icon={<FontAwesomeIcon icon={faGithub} />}>
-        Github
-      </Button>
-      <br />
+      .
+    </p>
+    <hr />
+    <p>
+      <a href="https://github.com/uwizy/strapi-plugin-webpage-builder/" target="_blank" rel="noopener noreferrer">
+        <Button color="secondary" icon={<FontAwesomeIcon icon={faGithub} />}>
+          Github
+        </Button>
+      </a>
     </p>
   </div>
 );

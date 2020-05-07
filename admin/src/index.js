@@ -9,7 +9,7 @@ export default (strapi) => {
     id: pluginId,
     title: {
       id: `${pluginId}.foo`,
-      defaultMessage: 'Wysiwyg editor settings',
+      defaultMessage: 'Webpage Builder',
     },
     links: [
       {
