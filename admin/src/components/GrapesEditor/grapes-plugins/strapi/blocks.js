@@ -4,7 +4,7 @@
 
 import { strapiRef } from './consts';
 
-export default function(editor, userOptions = {}) {
+export default function (editor, userOptions = {}) {
   const bm = editor.BlockManager;
 
   // These are the styles that are used in the components.

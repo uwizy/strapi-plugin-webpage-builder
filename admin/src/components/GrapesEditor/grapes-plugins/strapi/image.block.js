@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'; // eslint-disable-line import/no-unresolved
 
 export const StrapiImageBlock = ({ assetsManager, model, imgRef }) => {
   const [image, setImage] = useState({

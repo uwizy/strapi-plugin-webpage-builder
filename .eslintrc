@@ -1,0 +1,90 @@
+{
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "sourceType": "module",
+      "parser": "babel-eslint"
+    }
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    }
+  },
+  "extends": [
+    "standard",
+    "standard-react",
+    "plugin:import/errors",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react",
+    "prettier/standard",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "import/imports-first": [
+      "error",
+      "absolute-first"
+    ],
+    "import/newline-after-import": "error",
+    "no-console": 0,
+    "no-shadow": [
+      "error",
+      {
+        "hoist": "functions"
+      }
+    ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      {
+        "blankLine": "always",
+        "prev": "block-like",
+        "next": "*"
+      }
+    ],
+    "eol-last": [
+      "error",
+      "always"
+    ],
+    "no-alert": 2,
+    "no-else-return": 2,
+    "no-eval": 2,
+    "no-lone-blocks": 2,
+    "no-loop-func": 2,
+    "no-magic-numbers": [
+      0,
+      {
+        "ignoreArrayIndexes": true,
+        "enforceConst": true
+      }
+    ],
+    "radix": 2,
+    "no-unneeded-ternary": 2,
+    "no-var": 2,
+    "prefer-const": 2,
+    "react/no-unescaped-entities": 0,
+    "react/jsx-pascal-case": 0,
+    "react/prop-types": 0,
+    "no-new": 0,
+    "click-events-have-key-events": 0,
+    "indent": [
+      "error",
+      2
+    ]
+  }
+}

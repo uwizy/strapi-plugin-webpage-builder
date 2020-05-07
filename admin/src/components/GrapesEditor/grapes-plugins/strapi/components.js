@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'; // eslint-disable-line import/no-unresolved
+import ReactDOM from 'react-dom'; // eslint-disable-line import/no-unresolved
 import { strapiRef } from './consts';
 import { StrapiImageBlock } from './image.block';
 

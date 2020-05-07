@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'; // eslint-disable-line import/no-unresolved
 import PropTypes from 'prop-types';
 import GrapesJS from 'grapesjs';
-import gjsBasicBlocks from 'grapesjs-blocks-basic';
-import { useStrapi, prefixFileUrlWithBackendUrl } from 'strapi-helper-plugin';
+import gjsBasicBlocks from 'grapesjs-blocks-basic'; // eslint-disable-line no-unused-vars
+import { useStrapi, prefixFileUrlWithBackendUrl } from 'strapi-helper-plugin'; // eslint-disable-line import/no-unresolved
 import './grapes/scss/main.scss';
 import './grapes/fonts/MyFontsWebfontsKit.css';
 import addStrapiPlugin from './grapes-plugins/strapi';
