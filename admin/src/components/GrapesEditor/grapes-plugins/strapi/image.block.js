@@ -23,13 +23,13 @@ export const StrapiImageBlock = ({ assetsManager, model, imgRef }) => {
   };
 
   useEffect(() => {
-    if (!assetsManagerMounted) {
+    if (!assetsManagerMounted && model) {
       // Be careful: if you pass the callback function without nesting
       // it in an object it will be executed directly
-      assetsManager.onFilePicked({ call: onFilePickedCallback });
+      assetsManager.onFilePicked(model.ccid, { call: onFilePickedCallback });
       setAssetsManagerMounted(true);
     }
-  }, [assetsManager]);
+  }, [assetsManager, model]);
 
   useEffect(() => {
     imgRef.src = image.url;

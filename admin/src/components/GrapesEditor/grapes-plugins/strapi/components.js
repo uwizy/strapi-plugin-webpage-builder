@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { strapiRef } from './consts';
 import { StrapiImageBlock } from './image.block';
 
-export default function(editor, userOptions = {}) {
+export default function (editor, userOptions = {}) {
   const editorDomComponents = editor.DomComponents;
   const defaultType = editorDomComponents.getType('default');
   const defaultModel = defaultType.model;
   const defaultView = defaultType.view;
-  console.log(userOptions);
+
   editorDomComponents.addType(strapiRef, {
     model: defaultModel.extend(
       {
@@ -58,7 +58,7 @@ export default function(editor, userOptions = {}) {
         this.render();
       },
       onActive(ev) {
-        this.model.attributes.assetsManager.open();
+        this.model.attributes.assetsManager.open(this.model.ccid);
       },
       onRender({ el }) {
         // Generate the block that'll be show in canvas

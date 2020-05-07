@@ -11,7 +11,7 @@ import { deviceManagerConfig } from './config/device-manager.config';
 import { styleManagerConfig } from './config/style-manager.config';
 import { storageManagerConfig } from './config/storage-manager.config';
 import { editorConfig } from './config/editor.config';
-import './grapes/js/fa-shim'
+import './grapes/js/fa-shim';
 
 // DEV note: Many dependencies use FA
 // Grapes has an older version
@@ -22,14 +22,17 @@ import './grapes/js/fa-shim'
 window.FontAwesome.config.autoReplaceSvg = 'nest';
 
 const Editor = ({ onChange, name, value }) => {
-  const [isMediaLibOpen, setIsMediaLibOpen] = useState(false);
-  const toggleMediaLib = () => setIsMediaLibOpen((prev) => !prev);
+  const [mediaLibConfiguration, setMediaLibConfiguration] = useState({ open: false });
+  const toggleMediaLib = () =>
+    setMediaLibConfiguration((prev) => {
+      return { ...prev, open: !prev.open };
+    });
   const [editor, setEditor] = useState();
   const [editorConfigured, setEditorConfigured] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [pluginsLoaded, setPluginsLoaded] = useState(false);
   const [mediaLibPickedData, setMediaLibPickedData] = useState(null);
-  const [onFilePickedListener, setOnFilePickedListener] = useState({ call: null });
+  const [onFilePickedListeners, setOnFilePickedListeners] = useState({});
   const [sharedAssetsManager, setSharedAssetsManager] = useState(null);
   const {
     strapi: {
@@ -50,8 +53,13 @@ const Editor = ({ onChange, name, value }) => {
     if (mediaLibPickedData) {
       const { url, alternativeText } = mediaLibPickedData;
 
-      if (onFilePickedListener.call) {
-        onFilePickedListener.call({ url, alternativeText });
+      if (onFilePickedListeners) {
+        const registeredListener = onFilePickedListeners[mediaLibConfiguration.activeImageId];
+
+        if (registeredListener) {
+          registeredListener.call({ url, alternativeText });
+        }
+        // onFilePickedListeners.forEach((listener) => listener.call({ url, alternativeText }));
       }
     }
 
@@ -64,9 +72,12 @@ const Editor = ({ onChange, name, value }) => {
       setPluginsLoaded(true);
 
       setSharedAssetsManager({
-        open: () => setIsMediaLibOpen(true),
+        open: (id) => setMediaLibConfiguration({ open: true, activeImageId: id }),
         close: () => onMediaLibClosed(),
-        onFilePicked: (cbk) => setOnFilePickedListener(cbk),
+        onFilePicked: (fileId, cbk) =>
+          setOnFilePickedListeners((previousListeners) => {
+            return { ...previousListeners, [fileId]: cbk };
+          }),
       });
     }
   }, [setPluginsLoaded]);
@@ -92,9 +103,9 @@ const Editor = ({ onChange, name, value }) => {
         components: (value && value.components) || {},
         style: (value && value.styles) || {},
         storageManager: storageManagerConfig,
-        plugins: ["gjs-blocks-basic", strapiPluginRef],
+        plugins: ['gjs-blocks-basic', strapiPluginRef],
         pluginsOpts: {
-          ['gjs-blocks-basic']: {
+          'gjs-blocks-basic': {
             blocks: ['column1', 'column2', 'column3', 'column3-7', 'text'],
             category: 'Basic Blocks',
             flexGrid: true,
@@ -121,7 +132,7 @@ const Editor = ({ onChange, name, value }) => {
     editor.setDevice('Desktop');
     editor.Panels.removeButton('options', 'export-template');
 
-    editor.on('storage:store', function(e) {
+    editor.on('storage:store', function (e) {
       // When store is called, trigger strapi onChange callback
       console.log('data changed', e);
       // onChange({ target: { name, value: JSON.stringify(e) } });
@@ -158,7 +169,7 @@ const Editor = ({ onChange, name, value }) => {
       {MediaLibComponent && (
         <MediaLibComponent
           allowedTypes={['images']}
-          isOpen={isMediaLibOpen}
+          isOpen={mediaLibConfiguration.open}
           multiple={false}
           noNavigation={false}
           onClosed={onMediaLibClosed}
