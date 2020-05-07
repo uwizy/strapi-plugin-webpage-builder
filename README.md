@@ -3,8 +3,10 @@ Add GrapesJS builder to your own strapi application
 
 # Setup
 Install package
-```
+```sh
 npm i --save strapi-plugin-webpage-builder
+# or
+yarn add strapi-plugin-webpage-builder
 ```
 
 Create or edit `your-project/admin/admin.config.js` and add sass loader (which is required by GrapesJS)
@@ -18,7 +20,7 @@ module.exports = {
     // Allow scss modules
     config.resolve = { ...config.resolve, extensions: [...config.resolve.extensions, '.scss'] };
 
-    // Configure a SASS loaded
+    // Configure a SASS loader
     config.module.rules.push({
       test: /\.s[ac]ss$/i,
       use: [
@@ -36,7 +38,7 @@ module.exports = {
 
     return config;
   },
-};  
+};
 ```
 
 Edit your model(e.g. the model that'll handle web builder field) controllers (`your-project/api/your-model/controllers/your-model.js`).
@@ -73,4 +75,4 @@ module.exports = {
   },
 };
 ```
-> NB: this code assumes that you named a field `content` with type `json` in model `yourModel` 
+> NB: this code assumes that you named a field `content` with type `json` in model `yourModel`
