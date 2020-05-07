@@ -19,6 +19,7 @@ export default function (editor, userOptions = {}) {
           image: {
             url: userOptions.url,
             alternativeText: userOptions.alternativeText,
+            strapiId: userOptions.strapiId,
           },
           attributes: {
             class: 'strapi-block',
@@ -58,7 +59,7 @@ export default function (editor, userOptions = {}) {
         this.render();
       },
       onActive(ev) {
-        this.model.attributes.assetsManager.open(this.model.ccid);
+        this.model.attributes.assetsManager.open(this.model.ccid, this.model.attributes.image.strapiId);
       },
       onRender({ el }) {
         // Generate the block that'll be show in canvas

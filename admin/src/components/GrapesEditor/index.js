@@ -51,17 +51,18 @@ const Editor = ({ onChange, name, value }) => {
 
   const onMediaLibClosed = () => {
     if (mediaLibPickedData) {
-      const { url, alternativeText } = mediaLibPickedData;
+      const { url, alternativeText, id } = mediaLibPickedData;
 
-      if (onFilePickedListeners) {
+      if (onFilePickedListeners && url) {
         const registeredListener = onFilePickedListeners[mediaLibConfiguration.activeImageId];
 
         if (registeredListener) {
-          registeredListener.call({ url, alternativeText });
+          registeredListener.call({ url, alternativeText, strapiId: id });
         }
-        // onFilePickedListeners.forEach((listener) => listener.call({ url, alternativeText }));
       }
     }
+
+    setMediaLibConfiguration({ open: false });
 
     setMediaLibPickedData(null);
   };
@@ -72,7 +73,9 @@ const Editor = ({ onChange, name, value }) => {
       setPluginsLoaded(true);
 
       setSharedAssetsManager({
-        open: (id) => setMediaLibConfiguration({ open: true, activeImageId: id }),
+        open: (blockId, galleryId) => {
+          setMediaLibConfiguration({ open: true, activeImageId: blockId, selected: { id: galleryId } });
+        },
         close: () => onMediaLibClosed(),
         onFilePicked: (fileId, cbk) =>
           setOnFilePickedListeners((previousListeners) => {
@@ -128,14 +131,12 @@ const Editor = ({ onChange, name, value }) => {
       return;
     }
 
-    console.log('configure editor');
     editor.setDevice('Desktop');
     editor.Panels.removeButton('options', 'export-template');
 
     editor.on('storage:store', function (e) {
       // When store is called, trigger strapi onChange callback
-      console.log('data changed', e);
-      // onChange({ target: { name, value: JSON.stringify(e) } });
+
       onChange({
         target: {
           name,
@@ -166,12 +167,13 @@ const Editor = ({ onChange, name, value }) => {
         evt.preventDefault();
       }}
     >
-      {MediaLibComponent && (
+      {MediaLibComponent && mediaLibConfiguration.selected && (
         <MediaLibComponent
           allowedTypes={['images']}
           isOpen={mediaLibConfiguration.open}
           multiple={false}
           noNavigation={false}
+          selectedFiles={[mediaLibConfiguration.selected]}
           onClosed={onMediaLibClosed}
           onInputMediaChange={onMediaLibInputChange}
           onToggle={toggleMediaLib}
