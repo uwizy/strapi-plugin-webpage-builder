@@ -1,0 +1,16 @@
+@import './variables';
+@import '~grapesjs/src/styles/scss/main.scss';
+@import '../fonts/MyFontsWebfontsKit.css';
+
+.gjs-block-label {
+  font-size: 1rem;
+}
+
+// Layers list items height
+.gjs-no-app {
+  height: 15px;
+}
+
+.gjs-devices-c {
+  font-size: xx-small;
+}

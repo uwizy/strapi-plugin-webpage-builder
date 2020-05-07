@@ -1,0 +1,46 @@
+{
+  "name": "strapi-plugin-webpage-builder",
+  "version": "1.0.0-alpha.0.1",
+  "description": "Add GrapesJS builder to your own strapi application.",
+  "strapi": {
+    "name": "webpage-builder",
+    "icon": "plug",
+    "description": "Add GrapesJS builder to your own strapi application."
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "grapesjs": "^0.16.12",
+    "grapesjs-blocks-basic": "^0.1.8",
+    "grapesjs-plugin-ckeditor": "0.0.9",
+    "grapesjs-preset-webpage": "^0.1.11",
+    "node-html-parser": "^1.1.16",
+    "react-jsx-parser": "^1.21.0",
+    "react-style-tag": "^2.0.1",
+    "styled-components": "^4.4.0",
+    "underscore": "^1.9.1",
+    "xregexp": "^4.2.4"
+  },
+  "author": {
+    "name": "Hugues BUREAU",
+    "email": "h.bureau@uwizy.com",
+    "url": "https://uwizy.com"
+  },
+  "maintainers": [
+    {
+      "name": "Hugues BUREAU",
+      "email": "h.bureau@uwizy.com",
+      "url": "https://uwizy.com"
+    }
+  ],
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uwizy/strapi-plugin-webpage-builder"
+  },
+  "license": "MIT"
+}
