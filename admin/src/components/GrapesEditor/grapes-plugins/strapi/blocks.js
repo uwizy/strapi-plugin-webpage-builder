@@ -27,7 +27,7 @@ export default function(editor, userOptions = {}) {
   bm.remove(strapiRef);
 
   bm.add(strapiRef, {
-    label: userOptions.blockLabel,
+    label: 'Image',
     category: userOptions.blockLabel,
     attributes: { class: 'gjs-fonts gjs-f-image' },
     content: `

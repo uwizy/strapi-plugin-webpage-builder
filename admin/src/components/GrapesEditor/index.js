@@ -92,9 +92,9 @@ const Editor = ({ onChange, name, value }) => {
         components: (value && value.components) || {},
         style: (value && value.styles) || {},
         storageManager: storageManagerConfig,
-        plugins: [gjsBasicBlocks, strapiPluginRef],
+        plugins: ["gjs-blocks-basic", strapiPluginRef],
         pluginsOpts: {
-          'gjs-blocks-basic': {
+          ['gjs-blocks-basic']: {
             blocks: ['column1', 'column2', 'column3', 'column3-7', 'text'],
             category: 'Basic Blocks',
             flexGrid: true,
