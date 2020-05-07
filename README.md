@@ -1,6 +1,8 @@
 # strapi-plugin-webpage-builder
 Add GrapesJS builder to your own strapi application
 
+![Webpage builder demo](/admin/src/components/GrapesEditor/assets/img/demo.png)
+
 # Setup
 Install package
 ```sh
