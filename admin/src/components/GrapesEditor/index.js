@@ -11,6 +11,7 @@ import { deviceManagerConfig } from './config/device-manager.config';
 import { styleManagerConfig } from './config/style-manager.config';
 import { storageManagerConfig } from './config/storage-manager.config';
 import { editorConfig } from './config/editor.config';
+import './grapes/js/fa-shim'
 
 // DEV note: Many dependencies use FA
 // Grapes has an older version

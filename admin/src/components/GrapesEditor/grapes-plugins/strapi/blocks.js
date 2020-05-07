@@ -7,7 +7,7 @@ import { strapiRef } from './consts';
 export default function(editor, userOptions = {}) {
   const bm = editor.BlockManager;
 
-  // These are the styles that can be used both in the components and in the live view.
+  // These are the styles that are used in the components.
   // See component.js onRender().
   // These styles will also appear in the template's css.
   // NOTE: only styles that have '.strapi-block' in them will be put into the template's css.
@@ -29,7 +29,7 @@ export default function(editor, userOptions = {}) {
   bm.add(strapiRef, {
     label: userOptions.blockLabel,
     category: userOptions.blockLabel,
-    attributes: { class: 'fa fa-clock' },
+    attributes: { class: 'gjs-fonts gjs-f-image' },
     content: `
         <img data-gjs-type="${strapiRef}" />
         ${style}
