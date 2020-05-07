@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'; // eslint-disable-line import/no-unresolved
 import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash';
-import { Label, InputDescription, InputErrors } from 'strapi-helper-plugin';
+import { Label, InputDescription, InputErrors } from 'strapi-helper-plugin'; // eslint-disable-line import/no-unresolved
 import Editor from '../GrapesEditor';
 
 const Wysiwyg = ({ inputDescription, errors, label, name, noErrorsDescription, onChange, value }) => {
