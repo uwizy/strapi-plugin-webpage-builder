@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import GrapesJS from 'grapesjs';
 import gjsBasicBlocks from 'grapesjs-blocks-basic'; // eslint-disable-line no-unused-vars
 import { useStrapi, prefixFileUrlWithBackendUrl } from 'strapi-helper-plugin'; // eslint-disable-line import/no-unresolved
-import './grapes/scss/main.scss';
+import './assets/scss/main.scss';
 import addStrapiPlugin from './grapes-plugins/strapi';
 import { strapiPluginRef } from './grapes-plugins/strapi/consts';
 import { deviceManagerConfig } from './config/device-manager.config';
 import { styleManagerConfig } from './config/style-manager.config';
 import { storageManagerConfig } from './config/storage-manager.config';
 import { editorConfig } from './config/editor.config';
-import './grapes/js/fa-shim';
+import './assets/js/fa-shim';
 
 // DEV note: Many dependencies use FA
 // Grapes has an older version
