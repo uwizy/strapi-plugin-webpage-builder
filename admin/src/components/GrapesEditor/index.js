@@ -56,7 +56,7 @@ const Editor = ({ onChange, name, value }) => {
         const registeredListener = onFilePickedListeners[mediaLibConfiguration.activeImageId];
 
         if (registeredListener) {
-          registeredListener.call({ url, alternativeText, strapiId: id });
+          registeredListener.call({ src: url, alt: alternativeText, strapiId: id });
         }
       }
     }
@@ -89,12 +89,6 @@ const Editor = ({ onChange, name, value }) => {
       return;
     }
 
-    // const { components: componentsStringified, styles: stylesStringified } = JSON.parse(value) || {
-    //   components: '{}',
-    //   styles: '{}',
-    // };
-    // const components = JSON.parse(componentsStringified);
-    // const styles = JSON.parse(stylesStringified);
     // Original props here https://github.com/artf/grapesjs/blob/master/src/editor/config/config.js
     setEditor(
       GrapesJS.init({

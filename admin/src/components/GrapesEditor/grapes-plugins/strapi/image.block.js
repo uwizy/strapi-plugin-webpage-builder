@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'; // eslint-disable-line import/no-un
 
 export const StrapiImageBlock = ({ assetsManager, model, imgRef }) => {
   const [image, setImage] = useState({
-    url:
-      model.attributes.image.url ||
+    src:
+      model.attributes.image.src ||
       'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+',
-    alternativeText: model.attributes.image.alternativeText || 'Alt text',
+    alt: model.attributes.image.alt || 'Alt text',
   });
 
   const [assetsManagerMounted, setAssetsManagerMounted] = useState(false);
@@ -14,11 +14,7 @@ export const StrapiImageBlock = ({ assetsManager, model, imgRef }) => {
     setImage(imageData);
     model.attributes.image = imageData;
 
-    const modelComponents = model.get('components');
-
-    modelComponents.reset();
-    modelComponents.add(model.parent);
-    // modelComponents.add(`<img src="${url}"
+    model.setAttributes({ src: imageData.src, alt: imageData.alt });
     // data-highlightable="false" data-gjs-editable="false" data-gjs-removable="false" draggable="false" alt="${alternativeText}" style="max-width: '100%';" />`);
   };
 
@@ -32,8 +28,8 @@ export const StrapiImageBlock = ({ assetsManager, model, imgRef }) => {
   }, [assetsManager, model]);
 
   useEffect(() => {
-    imgRef.src = image.url;
-    imgRef.alt = image.alternativeText;
+    imgRef.src = image.src;
+    imgRef.alt = image.alt;
   }, [image]);
 
   return null;

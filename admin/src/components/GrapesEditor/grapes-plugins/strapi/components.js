@@ -19,10 +19,14 @@ export default function (editor, userOptions = {}) {
           image: {
             url: userOptions.url,
             alternativeText: userOptions.alternativeText,
+            src: userOptions.src,
+            alt: userOptions.alt,
             strapiId: userOptions.strapiId,
           },
           attributes: {
             class: 'strapi-block',
+            src: userOptions.src,
+            alt: userOptions.alt,
           },
           droppable: false,
           editable: true,
