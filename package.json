@@ -35,16 +35,14 @@
     },
     "author": {
         "name": "Hugues BUREAU",
-        "email": "h.bureau@uwizy.com",
+        "email": "dev@uwizy.com",
         "url": "https://uwizy.com"
     },
-    "maintainers": [
-        {
-            "name": "Hugues BUREAU",
-            "email": "h.bureau@uwizy.com",
-            "url": "https://uwizy.com"
-        }
-    ],
+    "maintainers": [{
+        "name": "Hugues BUREAU",
+        "email": "dev@uwizy.com",
+        "url": "https://uwizy.com"
+    }],
     "engines": {
         "node": ">=10.0.0",
         "npm": ">=6.0.0"
