@@ -1,0 +1,55 @@
+{
+    "name": "strapi-plugin-webpage-builder",
+    "version": "1.0.0-alpha.0.2",
+    "description": "Add GrapesJS builder to your own strapi application.",
+    "strapi": {
+        "name": "webpage-builder",
+        "icon": "plug",
+        "description": "Add GrapesJS builder to your own strapi application."
+    },
+    "dependencies": {
+        "grapesjs": "^0.16.17",
+        "grapesjs-blocks-basic": "^0.1.8",
+        "grapesjs-plugin-ckeditor": "0.0.9",
+        "grapesjs-preset-webpage": "^0.1.11",
+        "node-html-parser": "^1.1.16",
+        "react-jsx-parser": "^1.21.0",
+        "react-style-tag": "^2.0.1",
+        "styled-components": "^4.4.0",
+        "underscore": "^1.9.1",
+        "xregexp": "^4.2.4"
+    },
+    "devDependencies": {
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-config-standard": "^14.1.1",
+        "eslint-config-standard-react": "^9.2.0",
+        "eslint-plugin-import": "^2.20.2",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.1.3",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-react": "^7.19.0",
+        "eslint-plugin-standard": "^4.0.1",
+        "eslint-standard": "^1.0.2",
+        "prettier": "2.0.5"
+    },
+    "author": {
+        "name": "Hugues BUREAU",
+        "email": "dev@uwizy.com",
+        "url": "https://uwizy.com"
+    },
+    "maintainers": [{
+        "name": "Hugues BUREAU",
+        "email": "dev@uwizy.com",
+        "url": "https://uwizy.com"
+    }],
+    "engines": {
+        "node": ">=10.0.0",
+        "npm": ">=6.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/uwizy/strapi-plugin-webpage-builder"
+    },
+    "license": "MIT"
+}
