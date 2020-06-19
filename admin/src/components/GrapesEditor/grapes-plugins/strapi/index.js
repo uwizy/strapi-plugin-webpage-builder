@@ -1,7 +1,6 @@
 import grapesjs from 'grapesjs';
 import loadComponents from './components';
 import loadBlocks from './blocks';
-import loadCommands from './commands';
 import loadPanels from './panels';
 
 import { strapiRef, strapiPluginRef } from './consts';
@@ -32,9 +31,6 @@ export default function addStrapiPlugin() {
 
     // Add components
     loadBlocks(editor, userOptions);
-
-    // Load commands
-    loadCommands(editor, userOptions);
 
     // Load panels
     loadPanels(editor, userOptions);
