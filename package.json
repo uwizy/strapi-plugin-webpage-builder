@@ -1,6 +1,6 @@
 {
     "name": "strapi-plugin-webpage-builder",
-    "version": "1.0.0-alpha.0.1",
+    "version": "1.0.0-alpha.0.2",
     "description": "Add GrapesJS builder to your own strapi application.",
     "strapi": {
         "name": "webpage-builder",
